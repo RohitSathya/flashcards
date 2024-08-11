@@ -11,16 +11,16 @@ const Admin = () => {
   }, []);
 
   const fetchFlashcards = async () => {
-    const res = await axios.get('http://localhost:5000/flashcards');
+    const res = await axios.get('https://flashcards-sigma-eight.vercel.app/flashcards');
     setFlashcards(res.data);
   };
 
   const createOrUpdateFlashcard = async () => {
     if (editing) {
-      await axios.put(`http://localhost:5000/flashcards/${editing}`, newFlashcard);
+      await axios.put(`https://flashcards-sigma-eight.vercel.app/flashcards/${editing}`, newFlashcard);
       setEditing(null);
     } else {
-      await axios.post('http://localhost:5000/flashcards', newFlashcard);
+      await axios.post('https://flashcards-sigma-eight.vercel.app/flashcards', newFlashcard);
     }
     setNewFlashcard({ question: '', options: ['', '', '', ''], answer: '' });
     fetchFlashcards();
@@ -32,7 +32,7 @@ const Admin = () => {
   };
 
   const deleteFlashcard = async (id) => {
-    await axios.delete(`http://localhost:5000/flashcards/${id}`);
+    await axios.delete(`https://flashcards-sigma-eight.vercel.app/flashcards/${id}`);
     fetchFlashcards();
   };
 
