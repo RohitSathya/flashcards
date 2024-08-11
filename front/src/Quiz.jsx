@@ -12,12 +12,12 @@ const Quiz = () => {
   }, []);
 
   const fetchFlashcards = async () => {
-    const res = await axios.get('https://flashcards-sigma-eight.vercel.app/flashcards');
+    const res = await axios.get('https://flashcards-2b7m.vercel.app/flashcards');
     setFlashcards(res.data);
   };
 
   const submitAnswer = async () => {
-    const res = await axios.post(`https://flashcards-sigma-eight.vercel.app/flashcards/${flashcards[currentIndex]._id}/answer`, {
+    const res = await axios.post(`https://flashcards-2b7m.vercel.app/flashcards/${flashcards[currentIndex]._id}/answer`, {
       selectedOption,
     });
     setResult(res.data.isCorrect);
